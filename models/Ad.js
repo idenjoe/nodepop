@@ -13,6 +13,24 @@ var adSchema =  mongoose.Schema({
     tags : [String]
 });
 
+
+// List all Ads
+adSchema.statics.list = function (criteria, cb) {
+
+    var query = Ad.find(criteria);
+
+    query.sort('name');
+
+    query.exec(function (err, rows) {
+        if (err) {
+            return cb(err);
+        }
+
+        return cb(null, rows);
+
+    });
+};
+
 // export the scheme
 
 var Ad = mongoose.model('Ad',adSchema);
