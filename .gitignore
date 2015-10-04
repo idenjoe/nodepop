@@ -1,0 +1,9 @@
+# Quitar los logs
+*.log
+
+# Node Modules
+node_modules
+
+# Fichero .idea de WebStorm
+
+.idea
