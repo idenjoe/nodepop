@@ -27,9 +27,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', require('./routes/user'));
-app.use('/ads',require('./routes/ad'));
+//app.use('/users', require('./routes/user'));
+//app.use('/ads',require('./routes/ad'));
 app.use('/apiv1/ads',require('./routes/apiv1/ad'));
+app.use('/apiv1/users', require('./routes/apiv1/users'));
+app.use('/apiv1/authenticate',require('./routes/apiv1/authenticate'));
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

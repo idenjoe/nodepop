@@ -3,10 +3,12 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var Ad = mongoose.model('Ad'); //
+var Ad = mongoose.model('Ad');
+var jwtAuth = require('../../lib/jwtAuth');
+
+router.use(jwtAuth());
 
 router.get('/', function(req, res) {
-
 
     var criteria = {};
     criteria.filtered = {};
@@ -53,6 +55,18 @@ router.get('/', function(req, res) {
 
     });
 
+});
+
+router.get('/tags', function(req, res, next) {
+
+    Ad.tags( function(err, list){
+        if (err){
+            console.log(err);
+            return res.json({ok:false, error: err});
+        }
+
+        res.json({ok:true, data: list});
+    });
 });
 
 router.post('/', function(req, res, next) {

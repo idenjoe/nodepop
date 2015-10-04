@@ -34,6 +34,18 @@ adSchema.statics.list = function (criteria, cb) {
     });
 };
 
+adSchema.statics.tags = function (cb) {
+
+    var query = Ad.distinct('tags');
+
+    query.exec( function(err, rows) {
+        if (err) {
+            return cb(err);
+        }
+        return cb(null, rows);
+    });
+}
+
 // export the scheme
 
 var Ad = mongoose.model('Ad',adSchema);
