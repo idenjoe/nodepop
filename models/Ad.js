@@ -16,10 +16,13 @@ var adSchema =  mongoose.Schema({
 
 // List all Ads
 adSchema.statics.list = function (criteria, cb) {
+    var query = Ad.find(criteria.filtered);
 
-    var query = Ad.find(criteria);
+    query.sort(criteria.sort || 'name');
+    query.sort(criteria.sort || 'price');
 
-    query.sort('name');
+    query.skip(criteria.start || 0);
+    query.limit(criteria.limit || 4);
 
     query.exec(function (err, rows) {
         if (err) {
