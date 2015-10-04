@@ -6,6 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoDbLib = require('./lib/dbMongo.js');
 require('./models/Ad.js');
+require('./models/User.js');
+
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -25,7 +27,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
+app.use('/users', require('./routes/user'));
 app.use('/ads',require('./routes/ad'));
 
 // catch 404 and forward to error handler

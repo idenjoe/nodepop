@@ -4,16 +4,16 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 
-var Ad = mongoose.model('Ad');
+var User = mongoose.model('User');
 
 router.get('/', function(req, res, next){
     res.send('respond with a resource');
 });
 
 router.post('/', function(req, res, next){
-    var ad = new Ad({name:'Ad1', onSale: false, price: 150, photo:'http://localhost:3000/images/ads/yoda.jpg' ,tags: ['yoda','Star Wars']});
+    var user = new User({name: 'José Manuel', email: 'idenjoe@idenjoe.es', password: '123456'});
 
-    ad.save(function(err, created){
+    user.save(function(err, created){
         if (err) {
             console.log(err);
             return next(err);
