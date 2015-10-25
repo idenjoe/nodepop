@@ -13,11 +13,12 @@
 ###PRODUCTION
     npm start
     
-###SERVIDOR DE DESPLIEGUE
+####DevOps practice
+
 ##Nodepop
 URL: http://idenjoe.cloudapp.net
-#Ficheros estáticos
-[Imagen 1](http://idenjoe.cloudapp.net/images/bicicleta.jpg)
-[Imagen 2](http://idenjoe.cloudapp.net/images/iphone3gs.jpg)
+#Static files
+[Image 1](http://idenjoe.cloudapp.net/images/bicicleta.jpg)
+[Image 2](http://idenjoe.cloudapp.net/images/iphone3gs.jpg)
 ##Bootstrap
 IP: http://40.122.173.175
